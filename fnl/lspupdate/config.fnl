@@ -17,12 +17,12 @@
        :arduino_language_server "go|github.com/arduino/arduino-language-server"
        :bashls "npm|bash-language-server"
        :beancount "npm|@bryall/beancount-langserver"
-       :bicep "bin|https://github.com/Azure/bicep/releases/latest/download/bicep-langserver.zip"
+       :bicep "gh_bin|Azure/bicep"
        :ccls nil
        :clangd nil
        :clojure_lsp "nix|clojure-lsp"
        :cmake "pip|cmake-language-server"
-       :codeqlls "bin|https://github.com/github/codeql-cli-binaries/releases/download/v2.5.7/codeql-{linux,osx,win}64.zip"
+       :codeqlls "gh_bin|github/codeql-cli-binaries"
        :crystalline nil
        :csharp_ls "dotnet|csharp-ls"
        :cssls "npm|vscode-langservers-extracted"
@@ -52,7 +52,7 @@
        :groovyls nil
        :haxe_language_server nil
        :hie "deprecated|use hls"
-       :hls "bin|https://github.com/haskell/haskell-language-server/releases/download/1.2.0/haskell-language-server-{Linux,macOS}-1.2.0.tar.gz"
+       :hls "ghcup|hls"
        :html "npm|vscode-langservers-extracted"
        :idris2_lsp nil
        :intelephense "npm|intelephense"
@@ -71,7 +71,7 @@
        :nimls "nim|nimlsp"
        :ocamlls "npm|ocaml-langauge-server"
        :ocamllsp "opam|ocaml-lsp-server"
-       :omnisharp "bin|https://github.com/OmniSharp/omnisharp-roslyn/releases/download/v1.37.12/omnisharp-{linux-x64,osx,win-x64}.zip"
+       :omnisharp "gh_bin|OmniSharp/omnisharp-roslyn"
        :pasls nil
        :perlls "perl|Perl::LanguageServer"
        :perlpls "perl|PLS"
@@ -89,9 +89,9 @@
        :rls "rust|rls,rust-analysis,rust-src"
        :rnix "cargo|rnix-lsp"
        :rome "npm|rome"
-       :rust_analyzer "bin|https://github.com/rust-analyzer/rust-analyzer/releases/download/2021-07-12/rust-analyzer-x86_64-{unknown-linux-gnu,apple-darwin,pc-windows-msvc}.gz"
+       :rust_analyzer "gh_bin|rust-analyzer/rust-analyzer"
        :scry nil
-       :serve_d "bin|https://github.com/Pure-D/serve-d/releases"
+       :serve_d "gh_bin|Pure-D/serve-d"
        :solang nil
        :solargraph "gem|solargraph"
        :sorbet "gem|sorbet"
@@ -117,7 +117,7 @@
        :yamlls "npm|yaml-language-server"
        :zeta_note nil
        :zk nil
-       :zls "bin|https://github.com/zigtools/zls/releases/download/0.1.0/x86_64-{linux,macos,windows}.tar.xz"})
+       :zls "gh_bin|zigtools/zls"})
 
 (local update_github_releases (require :lspupdate.github))
 
@@ -139,6 +139,7 @@
        :dotnet "dotnet tool install %s"
        :gem "gem install -q --silent --user-install %s"
        :gh_bin update_github_releases
+       :ghcup "ghcup install %s"
        :go "go install %s"
        :julia "julia -e 'using Pkg; %s'"
        :luarocks "luarocks install --local %s"
